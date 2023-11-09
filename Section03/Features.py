@@ -1,5 +1,5 @@
 import nltk
-import random
+import secrets
 
 sampledata = [
     ('KA-01-F 1034 A', 'rtc'),
@@ -11,7 +11,7 @@ sampledata = [
     ('KA-04-G 9230 A', 'gov'),
     ('KA-27 1290', 'oth')
 ]
-random.shuffle(sampledata)
+secrets.SystemRandom().shuffle(sampledata)
 testdata = [
     'KA-01-G 0109',
     'KA-02-F 9020 AC',
