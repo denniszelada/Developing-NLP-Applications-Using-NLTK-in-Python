@@ -1,14 +1,14 @@
 import nltk
 from nltk.chunk import tree2conlltags
 from nltk.corpus import names
-import random
+import secrets
 
 class AnaphoraExample:
     def __init__(self):
         males = [(name, 'male') for name in names.words('male.txt')]
         females = [(name, 'female') for name in names.words('female.txt')]
         combined = males + females
-        random.shuffle(combined)
+        secrets.SystemRandom().shuffle(combined)
         training = [(self.feature(name), gender) for (name, gender) in combined]
         self._classifier = nltk.NaiveBayesClassifier.train(training)
 
