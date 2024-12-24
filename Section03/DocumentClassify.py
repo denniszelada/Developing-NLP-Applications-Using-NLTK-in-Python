@@ -1,6 +1,6 @@
 import nltk
-import random
 import feedparser
+import secrets
 
 urls = {
     'mlb': 'https://sports.yahoo.com/mlb/rss.xml',
@@ -28,7 +28,7 @@ for category in urls.keys():
         sentences.append((category, words))
 
 featuresets = [(featureExtractor(words), category) for category, words in sentences]
-random.shuffle(featuresets)
+secrets.SystemRandom().shuffle(featuresets)
 
 total = len(featuresets)
 off = int(total/2)
