@@ -1,6 +1,6 @@
 from gensim.summarization import summarize
 from bs4 import BeautifulSoup
-import requests
+from security import safe_requests
 
 #
 # This recipe uses automatic computer science Paper generation tool from mit.edu
@@ -19,7 +19,7 @@ urls = {
 
 for key in urls.keys():
     url = urls[key]
-    r = requests.get(url)
+    r = safe_requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
     data = soup.get_text()
     pos1 = data.find("1  Introduction") + len("1  Introduction")
