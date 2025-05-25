@@ -19,7 +19,7 @@ urls = {
 
 for key in urls.keys():
     url = urls[key]
-    r = requests.get(url)
+    r = requests.get(url, timeout=60)
     soup = BeautifulSoup(r.text, 'html.parser')
     data = soup.get_text()
     pos1 = data.find("1  Introduction") + len("1  Introduction")
