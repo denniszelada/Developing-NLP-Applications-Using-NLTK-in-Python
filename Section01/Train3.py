@@ -1,5 +1,6 @@
 import nltk
 import pickle
+import fickling
 
 def sampleData():
     return [
@@ -29,7 +30,7 @@ def saveMyTraining(fileName):
     saveMyTagger(tagger, fileName)
 
 def loadMyTagger(fileName):
-    return pickle.load(open(fileName, "rb"))
+    return fickling.load(open(fileName, "rb"))
 
 sentence = 'Iphone is purchased by Steve Jobs in Bangalore Market'
 fileName = "myTagger.pickle"
